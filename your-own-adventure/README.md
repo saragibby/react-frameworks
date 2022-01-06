@@ -1,5 +1,11 @@
 https://medium.com/@JedaiSaboteur/creating-a-react-app-from-scratch-f3c693b84658
 
+
+https://www.code-boost.com/webpack-react-setup/#:~:text=How%20to%20Set%20up%20a%20React%20Webpack%20Application,browser%2C%20its%20time%20to%20prepare%20it%20for%20production
+
+https://jorgechavez.dev/2020/05/02/how-to-configure-react-app-with-webpack-and-babel/
+
+
 1. npm init (take defaults, or override where needed)
 2. add .gitignore
 3. add public folder
