@@ -1,6 +1,8 @@
 import logo from './logo.svg';
 import './App.css';
 
+import Title from "./components/Title"
+
 function App() {
   return (
     <div className="App">
@@ -17,6 +19,7 @@ function App() {
         >
           Learn React
         </a>
+        <Title framework="create-react-app" />
       </header>
     </div>
   );
