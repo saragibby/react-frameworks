@@ -8,6 +8,11 @@ const options = US_STATES.map((stateName) => ({
   label: stateName,
 }));
 
+options.unshift({
+  value: "",
+  label: "",
+});
+
 const StateSelect = ({ setLoading, setSelectedState }) => {
   const defaultSelected = find(
     options,
@@ -24,6 +29,7 @@ const StateSelect = ({ setLoading, setSelectedState }) => {
       options={options}
       onChange={handleChange}
       defaultValue={defaultSelected}
+      isSearchable
     />
   );
 };

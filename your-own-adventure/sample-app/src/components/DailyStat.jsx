@@ -24,6 +24,7 @@ const DailyStat = ({
         params,
       })
       .then(function (response) {
+        console.log("response", response);
         setResponse(response);
       })
       .catch(function (error) {

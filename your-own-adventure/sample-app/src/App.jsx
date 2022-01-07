@@ -1,49 +1,36 @@
-import React, { useState } from "react";
+/**
+ * Main App component
+ * Rendered from index into DOM, contains the entire application.
+ */
+
+import React from "react";
 import "./App.css";
-import DailyStat from "./components/DailyStat";
-import DateSelector from "./components/DateSelector";
-import StateSelect from "./components/StateSelect";
-import { defaultStateName } from "./constants";
+import { BrowserRouter, Link, Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import UnitedStatesOnly from "./pages/UnitedStatesOnly";
 
 const App = () => {
-  const defaultDate = new Date();
-  defaultDate.setDate(defaultDate.getDate() - 200);
-
-  const [startDate, setStartDate] = useState(defaultDate);
-  const [endDate, setEndDate] = useState(defaultDate);
-  const [loading, setLoading] = useState(true);
-  const [selectedState, setSelectedState] = useState(defaultStateName);
-
-  console.log("selectedState", selectedState);
-
   return (
     <div className="App">
-      <h1>Nope, create-react-app is not what you want, and here's why</h1>
-      <h2>Your Own Adventure</h2>
-      <div style={{ display: "flex" }}>
-        <DateSelector
-          startDate={startDate}
-          setStartDate={(value) => {
-            setLoading(true);
-            setStartDate(value);
-          }}
-          endDate={endDate}
-          setEndDate={setEndDate}
-        />
-        <div style={{ flexGrow: 2, paddingLeft: "2rem" }}>
-          <StateSelect
-            setSelectedState={setSelectedState}
-            setLoading={setLoading}
-          />
+      <BrowserRouter>
+        <div>
+          <h1>Nope, create-react-app is not what you want, and here's why</h1>
+          <h2>
+            <Link to="/">Your Own Adventure</Link>
+          </h2>
+          <ul>
+            <li>
+              <Link to="/us">United States</Link>
+            </li>
+            <li>Global</li>
+            <li>Global + US</li>
+          </ul>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/us" element={<UnitedStatesOnly />} />
+          </Routes>
         </div>
-      </div>
-      <DailyStat
-        loading={loading}
-        setLoading={setLoading}
-        startDate={startDate}
-        endDate={endDate}
-        selectedState={selectedState}
-      />
+      </BrowserRouter>
     </div>
   );
 };

@@ -1,6 +1,12 @@
 export const US_ONLY =
   "https://webhooks.mongodb-stitch.com/api/client/v2.0/app/covid-19-qppza/service/REST-API/incoming_webhook/us_only";
 
+export const GLOBAL =
+  "https://webhooks.mongodb-stitch.com/api/client/v2.0/app/covid-19-qppza/service/REST-API/incoming_webhook/global";
+
+export const GLOBAL_AND_US =
+  "https://webhooks.mongodb-stitch.com/api/client/v2.0/app/covid-19-qppza/service/REST-API/incoming_webhook/global_and_us";
+
 export const defaultStateName = "Michigan";
 
 export const US_STATES = [
