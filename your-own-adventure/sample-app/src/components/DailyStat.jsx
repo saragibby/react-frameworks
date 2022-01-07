@@ -2,7 +2,13 @@ import React, { useEffect, useState } from "react";
 import { US_ONLY } from "../constants";
 import BarChart from "./BarChart";
 
-const DailyStat = ({ loading, setLoading, startDate, endDate }) => {
+const DailyStat = ({
+  loading,
+  setLoading,
+  startDate,
+  endDate,
+  selectedState,
+}) => {
   const axios = require("axios");
   const [response, setResponse] = useState();
 
@@ -10,7 +16,7 @@ const DailyStat = ({ loading, setLoading, startDate, endDate }) => {
     const params = {
       min_date: `${startDate.toISOString().substr(0, 10)}T00:00:00.000Z`,
       max_date: `${endDate.toISOString().substr(0, 10)}T00:00:00.000Z`,
-      state: "Michigan",
+      state: selectedState,
     };
 
     axios
@@ -27,7 +33,7 @@ const DailyStat = ({ loading, setLoading, startDate, endDate }) => {
         // always executed
         setLoading(false);
       });
-  }, [startDate, endDate]);
+  }, [startDate, endDate, selectedState]);
 
   return (
     <>
